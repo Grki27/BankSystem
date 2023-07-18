@@ -12,15 +12,17 @@
                 throw new Exception(); //bacam exception jer je tesko oporaviti se od situacije u kojoj korisnik krivo upise podatke
             }
             else
-                this.AllowedMinus = AllowedMinus;
+            { this.AllowedMinus = AllowedMinus; }
         }
 
         public override void Withdrawal(decimal iznos)
         {
             if (iznos >= Balance + AllowedMinus)
+            {
                 Console.WriteLine("Not enough money on the account");
+            }
             else
-                Balance -= iznos;
+            { Balance -= iznos; }
         }
     }
 }

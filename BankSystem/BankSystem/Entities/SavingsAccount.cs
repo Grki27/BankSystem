@@ -10,10 +10,9 @@
             {
                 Console.WriteLine("The interest rate must be a positive decimal number");
                 throw new Exception(); //bacam exception jer je tesko oporaviti se od situacije u kojoj korisnik krivo upise podatke}
-
             }
             else
-                this.InterestRate = InterestRate;
+            { this.InterestRate = InterestRate; }
         }
 
         public decimal CalculateInterestAmount()

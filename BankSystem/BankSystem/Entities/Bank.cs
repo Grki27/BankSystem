@@ -7,7 +7,7 @@
         public void CreateAccount(BankAccount account)
         {
             if (lista.Find(x => x.Equals(account)) == null)
-                lista.Add(account);
+            { lista.Add(account); }
             else
 
             {
@@ -24,7 +24,7 @@
                 ba.Deposit(deposit);
             }
             else
-                Console.WriteLine("Account ID is incorrect");
+            { Console.WriteLine("Account ID is incorrect"); }
         }
 
         //ako se u listi ne pronade aacount id ba ce biti null
@@ -36,7 +36,7 @@
                 ba.Withdrawal(amount);
             }
             else
-                Console.WriteLine("Account ID is incorrect");
+            { Console.WriteLine("Account ID is incorrect"); }
         }
 
         public void DisplayAccountInfo(int AccountId)
@@ -47,7 +47,7 @@
                 ba.DisplayAccountInfo();
             }
             else
-                Console.WriteLine("Account ID is incorrect");
+            { Console.WriteLine("Account ID is incorrect"); }
         }
 
         public BankAccount GetAccountById(int AccountId)
@@ -101,7 +101,9 @@
             foreach (var ba in lista)
             {
                 if (ba.Balance == max)
-                { listaNajbogatijih.Add(ba); }
+                {
+                    listaNajbogatijih.Add(ba);
+                }
             }
             return listaNajbogatijih;
         }
@@ -113,7 +115,9 @@
             foreach (var ba in lista)
             {
                 if (ba.Balance == min)
-                { listaNajsiromasnijih.Add(ba); }
+                {
+                    listaNajsiromasnijih.Add(ba);
+                }
             }
             return listaNajsiromasnijih;
         }
@@ -140,16 +144,16 @@
 
         public List<BankAccount> GetAccountsByOwner(string ownerName)
         {
-            List<BankAccount> listaPoImenu = lista.Where(ba => ba.AccountOwner.Equals(ownerName)).ToList();
+            var listaPoImenu = lista.Where(ba => ba.AccountOwner.Equals(ownerName)).ToList();
             if (listaPoImenu.Count == 0)
             {
                 Console.WriteLine("Nema korisnika s tim imenom");
                 throw new Exception();
             }
             else
+            {
                 return listaPoImenu;
-
+            }
         }
-
     }
 }

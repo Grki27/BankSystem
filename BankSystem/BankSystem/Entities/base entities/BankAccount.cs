@@ -21,6 +21,10 @@
             }
         }
 
+        public BankAccount()
+        {
+        }
+
         public void Deposit(decimal iznos)
         {
             Balance += iznos;

@@ -56,7 +56,7 @@
             if (ba == null)
             {
                 Console.WriteLine("The account with that ID doesn't exist");
-                throw new Exception();
+                return new BankAccount();
             }
             return ba;
         }
@@ -84,36 +84,36 @@
             return totalBalance;
         }
 
-        public List<BankAccount> allAccountsHigherThan(decimal amount)
+        public List<BankAccount> AllAccountsHigherThan(decimal amount)
         {
             return lista.Where(ba => ba.Balance >= amount).ToList();
         }
 
-        public List<BankAccount> allAccountsStartingWithM()
+        public List<BankAccount> AllAccountsStartingWithM()
         {
             return lista.Where(ba => ba.AccountOwner.StartsWith("M")).ToList();
         }
 
         public List<BankAccount> MostWealthy()
         {
-            List<BankAccount> listaNajbogatijih = new List<BankAccount>();
+            var listaNajbogatijih = new List<BankAccount>();
             decimal max = lista.Select(ba => ba.Balance).Max();
             foreach (var ba in lista)
             {
                 if (ba.Balance == max)
-                    listaNajbogatijih.Add(ba);
+                { listaNajbogatijih.Add(ba); }
             }
             return listaNajbogatijih;
         }
 
         public List<BankAccount> LeastWealthy()
         {
-            List<BankAccount> listaNajsiromasnijih = new List<BankAccount>();
+            var listaNajsiromasnijih = new List<BankAccount>();
             decimal min = lista.Select(ba => ba.Balance).Min();
             foreach (var ba in lista)
             {
                 if (ba.Balance == min)
-                    listaNajsiromasnijih.Add(ba);
+                { listaNajsiromasnijih.Add(ba); }
             }
             return listaNajsiromasnijih;
         }
@@ -123,12 +123,12 @@
             return lista.Select(ba => ba.Balance).Average();
         }
 
-        public List<BankAccount> fromLowerToHigher()
+        public List<BankAccount> FromLowerToHigher()
         {
             return lista.OrderBy(ba => ba.Balance).ToList();
         }
 
-        public List<BankAccount> fromHigherToLower()
+        public List<BankAccount> FromHigherToLower()
         {
             return lista.OrderBy(ba => ba.Balance).Reverse().ToList();
         }

@@ -26,11 +26,11 @@ internal class Program
         foreach (BankAccount account in listaNajsiromasnijih)
             account.DisplayAccountInfo(); //izbacuje Ratka jer je najsiromasniji
         Console.WriteLine("----------------------------------------------");
-        List<BankAccount> listaOnihSaM=banka.allAccountsStartingWithM();
+        List<BankAccount> listaOnihSaM=banka.AllAccountsStartingWithM();
         foreach (BankAccount account in listaOnihSaM)
             account.DisplayAccountInfo(); //izbacuje Marina i Matea
         Console.WriteLine("----------------------------------------------");
-        List<BankAccount> lista2 = banka.fromHigherToLower();
+        List<BankAccount> lista2 = banka.FromHigherToLower();
         foreach (BankAccount account in lista2)
             account.DisplayAccountInfo(); //izbacuje sve od najveceg bogatsva prema najmanjem
         Console.WriteLine("----------------------------------------------");
@@ -38,5 +38,7 @@ internal class Program
         foreach (BankAccount account in listaMarina)
             account.DisplayAccountInfo();
         Console.WriteLine("----------------------------------------------");
+
+
     }
 }
